@@ -39,6 +39,21 @@ button:hover {
   gap: 1rem;
 }
 
+.task-search {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.task-search input {
+  outline: none;
+  padding: 0.6rem;
+  width: 24rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
 .task-form input {
   outline: none;
   padding: 0.6rem;
