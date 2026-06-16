@@ -57,25 +57,25 @@ Day 3 - Wednesday (Week 2)
 
 **First: useDebounce hook - 60 min**
 
-- []  Create src/hooks/useDebounce.ts
-- []  Signature: useDebounce (value: T, delay: number): T
-- []  Uses useEffect + setTimeout + clearTimeout (cleanup function)
-- []  The cleanup is the key lesson — what happens without it?
-- []  Test: add a search input to filter tasks by title. The filter should debounce.
+- [x]  Create src/hooks/useDebounce.ts
+- [x]  Signature: useDebounce (value: T, delay: number): T
+- [x]  Uses useEffect + setTimeout + clearTimeout (cleanup function)
+- [x]  The cleanup is the key lesson — what happens without it?
+- [x]  Test: add a search input to filter tasks by title. The filter should debounce.
 
 **Second: usePrevious hook - 45 min**
 
-- []  Create src/hooks/usePrevious.ts
-- []  Signature: usePrevious (value: T): T | undefined
-- []  Uses useRef — the value persists across renders without causing re-renders
-- []  This one is short. If it takes more than 45 min, you're overthinking it.
+- [x]  Create src/hooks/usePrevious.ts
+- [x]  Signature: usePrevious (value: T): T | undefined
+- [x]  Uses useRef — the value persists across renders without causing re-renders
+- [x]  This one is short. If it takes more than 45 min, you're overthinking it.
 
 **Third: TypeScript pass on hooks - 60 min**
 
-- []  Each hook must have explicit return type annotation
-- []  Generics must be constrained where appropriate
-- []  Run typecheck — zero errors
-- []  Can you explain why useDebounce needs a cleanup function? Write the answer.
+- [x]  Each hook must have explicit return type annotation
+- [x]  Generics must be constrained where appropriate
+- [x]  Run typecheck — zero errors
+- [x]  Can you explain why useDebounce needs a cleanup function? Write the answer.
 
 Goal: All 3 custom hooks built, typed, and integrated. Typecheck passes.
 
@@ -83,24 +83,24 @@ Day 4 - Thursday (Week 2)
 
 **First: useMemo for filtered tasks - 45 min**
 
-- []  The filteredTasks derivation is currently inline. Move it to useMemo.
-- []  const filteredTasks = useMemo(() => ..., [tasks, filter])
-- []  Ask yourself: does this actually improve anything? Measure before assuming.
-- []  Use React DevTools Profiler — open it, record interactions, look at render times
+- [x]  The filteredTasks derivation is currently inline. Move it to useMemo.
+- [x]  const filteredTasks = useMemo(() => ..., [tasks, filter])
+- [x]  Ask yourself: does this actually improve anything? Measure before assuming.
+- [x]  Use React DevTools Profiler — open it, record interactions, look at render times
 
 **Second: useCallback on handlers - 45 min**
 
-- []  Wrap addTask, deleteTask, updateTaskStatus in useCallback
-- []  Dependency arrays must be correct — ESLint exhaustive-deps will catch errors
-- []  Critical question: does this actually help without React.memo on children?
-- []  Answer: no. Note this. Premature optimization is the anti-pattern.
+- [x]  Wrap addTask, deleteTask, updateTaskStatus in useCallback
+- [x]  Dependency arrays must be correct — ESLint exhaustive-deps will catch errors
+- [x]  Critical question: does this actually help without React.memo on children?
+- [x]  Answer: no. Note this. Premature optimization is the anti-pattern.
 
 **Third: folder structure review - 60 min**
 
-- []  Review current structure against the Week 1 expected layout
-- []  Add src/hooks/ and src/reducers/ — are they earning their place?
-- []  Every file should be importable and explainable in one sentence
-- []  Clean up any dead code from the refactor
+- [x]  Review current structure against the Week 1 expected layout
+- [x]  Add src/hooks/ and src/reducers/ — are they earning their place?
+- [x]  Every file should be importable and explainable in one sentence
+- [x]  Clean up any dead code from the refactor
 
 Goal: Refactor complete. Profiler used. Premature optimization identified and noted.
 
@@ -108,22 +108,22 @@ Day 5 - Friday (Week 2)
 
 **Code review: hooks edition - 60 min**
 
-- []  For each custom hook: can you explain the input, output, and why it uses the hook it uses?
-- []  Is the reducer exhaustive? Does TypeScript prove it?
-- []  Are useEffect cleanup functions present where needed?
-- []  Any useEffect that syncs state to state? Delete it.
+- [x]  For each custom hook: can you explain the input, output, and why it uses the hook it uses?
+- [x]  Is the reducer exhaustive? Does TypeScript prove it?
+- [x]  Are useEffect cleanup functions present where needed?
+- [x]  Any useEffect that syncs state to state? Delete it.
 
 **Retrospective + README update - 30 min**
 
-- []  Add a section to README: 'Why useReducer over useState for task state'
-- []  Add: 'Custom hooks built and what each does'
-- []  Add: 'What I learned about useMemo/useCallback this week'
+- [x]  Add a section to README: 'Why useReducer over useState for task state'
+- [x]  Add: 'Custom hooks built and what each does'
+- [x]  Add: 'What I learned about useMemo/useCallback this week'
 
 **Commit and push to GitHub - 30 min**
 
-- []  Tag this commit: git tag v2-hooks-refactor
-- []  Meaningful messages per hook and reducer
-- []  Push tags: git push --tags
+- [x]  Tag this commit: git tag v2-hooks-refactor
+- [x]  Meaningful messages per hook and reducer
+- [x]  Push tags: git push --tags
 
 Goal: README updated, tagged commit pushed, you can explain every hook decision.
 
@@ -144,16 +144,15 @@ Day 6 - Saturday (Week 2)
 
 **Drill 3: Redux literacy spike - 60 min**
 
-- []  Record a 5-min voice memo (phone is fine) explaining your task manager
-- []  Cover: component structure, where state lives, why you made those choices
-- []  If you stumble explaining something, that's your next study target
-- []  This is interview prep disguised as reflection
-
-**Plan next week - 30 min**
-
 - []  Read Redux Toolkit docs: createSlice, configureStore, useSelector, useDispatch
 - []  Do NOT build anything — read and understand the pattern
 - []  Write: how does RTK's createSlice compare to your taskReducer + action union?
 - []  This is the legacy literacy session from the enterprise readiness plan
+
+**Plan next week - 30 min**
+
+- []  Review Week 3 from the roadmap: component architecture, Storybook, a11y foundations
+- []  Write 2 questions you still have from this week
+- []  Identify the one concept that felt most shaky — read the docs on it Sunday
 
 Goal: useDebounce from memory. RTK mental model acquired.
