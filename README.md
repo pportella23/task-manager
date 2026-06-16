@@ -12,6 +12,12 @@ A task manager web app built with React, TypeScript, and Vite — no libraries b
 
 - **`reorderTask` lives in `App.tsx`, not `TaskList`.** `setTasks` lives in `App`, so any function that needs to update the task array must live there too. `TaskList` receives `onReorder` as a prop and calls it with the drag and drop IDs — it doesn't need to know how the array is mutated.
 
+- **`useReducer` instead of `useState` for task state.** Task state involves multiple distinct operations (add, delete, update status, reorder) that all modify the same array. `useReducer` moves that logic into a pure function outside the component, making each case independently testable and the component itself easier to read. `useState` with four separate handlers would have spread the same logic across the component body.
+
+- **Three custom hooks extracted: `useLocalStorage`, `useDebounce`, and `usePrevious`.** `useLocalStorage<T>` encapsulates reading and writing to localStorage, including error handling and the lazy initializer pattern. `useDebounce<T>` delays processing a value until the user stops typing — used here for the title search input. `usePrevious<T>` demonstrates how `useRef` can persist a value across renders without triggering a re-render, by reading the ref before the effect updates it.
+
+- **`useMemo` and `useCallback` require `React.memo` on children to have any effect on render performance.** `useMemo` caches the result of a calculation between renders. `useCallback` preserves the reference identity of a function between renders. But neither prevents child components from re-rendering on their own — a child always re-renders when its parent does, unless it's wrapped in `React.memo`. Only then does a stable function reference from `useCallback` matter: `React.memo` compares props by reference, so a stable reference means the child sees no change and skips the render. Without `React.memo` on the child, `useCallback` on the parent does nothing.
+
 ## What I'd change
 
 I'd add a checkbox at the start of each task item as a quicker way to mark it as done, and dim the title text (light gray) for completed tasks to make the visual distinction stronger. I'd also reconsider using `Date.now()` as the task ID — it's fine for a single user in a browser, but a proper UUID would be more correct. Subtasks would be a natural next feature, though it would require rethinking the data model.
